@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stonepeak Closing Celebrations — BondST Hudson Yards</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F8F5EF;--cream-dark:#EDE8DF;--cream-mid:#E2DAC8;
+  --ink:#1C1916;--ink-mid:#4A443C;--ink-light:#8A8278;--ink-faint:#C4BBAE;
+  --gold:#B08A4E;--gold-light:#D4AE72;
+  --green:#2D4A3E;--green-lt:#E8EFF0;--green-mid:#3d6b5a;
+  --ok:#2D5A3D;--ok-bg:#E8F2EB;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;font-size:15px;line-height:1.6;}
+
+/* HEADER */
+.site-header{background:var(--ink);position:sticky;top:0;z-index:200;}
+.hdr{max-width:980px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.logo{display:flex;align-items:baseline;gap:12px;}
+.logo-t{font-family:'Cormorant Garamond',serif;font-size:19px;color:#fff;}
+.logo-pipe{width:1px;height:16px;background:rgba(255,255,255,.2);}
+.logo-s{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;}
+.hdr-badge{font-size:11px;color:var(--gold-light);letter-spacing:.08em;text-transform:uppercase;}
+
+/* HERO */
+.hero{background:var(--ink);padding:3.5rem 2rem 3rem;border-bottom:1px solid rgba(176,138,78,.3);}
+.hero-in{max-width:980px;margin:0 auto;}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.hero-t{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1.08;margin-bottom:12px;}
+.hero-t em{font-style:italic;color:var(--gold-light);}
+.hero-projects{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.proj-tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--green-lt);background:rgba(45,74,62,.5);border:1px solid rgba(61,107,90,.6);padding:4px 12px;border-radius:20px;}
+.hero-d{font-size:14px;color:rgba(255,255,255,.5);max-width:560px;line-height:1.75;}
+
+/* SYNC BAR */
+.sync-bar{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:5px 2rem;}
+.sync-in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:8px;}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--ink-light);flex-shrink:0;transition:background .3s;}
+.sdot.spin{background:var(--gold);animation:pulse 1s infinite;}
+.sdot.ok{background:#4CAF50;}
+.sdot.err{background:#E53935;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.slabel{font-size:11px;color:rgba(255,255,255,.35);}
+
+/* MAIN */
+.main{max-width:980px;margin:0 auto;padding:2.5rem 2rem 5rem;}
+.section-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;}
+
+/* VENUE */
+.venue-section{margin-bottom:3rem;}
+.venue-card{background:#fff;border:1px solid var(--cream-mid);border-radius:14px;overflow:hidden;}
+.venue-photos{display:grid;grid-template-columns:1.6fr 1fr;gap:3px;height:240px;}
+.venue-photos .photo-main{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-stack{display:grid;grid-template-rows:1fr 1fr;gap:3px;}
+.photo-stack img{width:100%;height:100%;object-fit:cover;display:block;}
+.venue-body{padding:1.75rem 2rem;}
+.venue-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--ink);margin-bottom:4px;}
+.venue-sub{font-size:13px;color:var(--ink-light);margin-bottom:1rem;}
+.venue-meta{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:var(--ink-mid);margin-bottom:1rem;}
+.venue-meta span{display:flex;align-items:center;gap:6px;}
+.venue-desc{font-size:14px;color:var(--ink-mid);line-height:1.75;margin-bottom:1.25rem;max-width:640px;}
+.venue-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--gold);text-decoration:none;font-weight:500;transition:color .15s;}
+.venue-link:hover{color:var(--ink);}
+
+/* VOTE */
+.vote-card{background:#fff;border:1px solid var(--cream-mid);border-radius:14px;padding:2rem;}
+.vote-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--ink);margin-bottom:4px;}
+.vote-sub{font-size:13px;color:var(--ink-light);margin-bottom:1.5rem;}
+.name-row{margin-bottom:1.5rem;}
+.name-row label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;display:block;margin-bottom:5px;}
+.name-row input{padding:9px 12px;border:1px solid var(--cream-mid);border-radius:7px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--cream);outline:none;width:280px;max-width:100%;transition:border-color .15s;height:40px;}
+.name-row input:focus{border-color:var(--ink-faint);background:#fff;}
+.dates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:1.5rem;}
+.date-btn{padding:12px 8px;border-radius:10px;border:1.5px solid var(--cream-mid);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;text-align:center;}
+.date-btn:hover{border-color:var(--ink-faint);background:#fff;}
+.date-btn.sel{border-color:var(--green);background:var(--green-lt);}
+.date-btn.sel .dnum{color:var(--green);}
+.dday{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);display:block;margin-bottom:2px;}
+.dnum{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--ink);display:block;line-height:1;}
+.dmo{font-size:10px;color:var(--ink-faint);display:block;margin-top:2px;}
+.dtally{font-size:10px;color:var(--ink-faint);display:block;margin-top:5px;}
+.submit-row{display:flex;align-items:center;gap:14px;}
+.submit-btn{padding:11px 32px;font-size:14px;font-weight:500;border-radius:8px;border:none;background:var(--green);color:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;}
+.submit-btn:hover{background:var(--green-mid);}
+.toast{font-size:13px;color:var(--ok);font-weight:500;opacity:0;transition:opacity .3s;}
+.toast.on{opacity:1;}
+
+/* RESULTS */
+.results{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--cream-dark);}
+.results-hdr{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);font-weight:500;margin-bottom:1rem;}
+.result-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.rlabel{min-width:64px;font-size:13px;font-weight:500;color:var(--ink-mid);}
+.rbar-wrap{flex:0 0 80px;height:5px;background:var(--cream-dark);border-radius:3px;overflow:hidden;}
+.rbar{height:100%;border-radius:3px;background:var(--green);transition:width .5s cubic-bezier(.4,0,.2,1);}
+.rnames{flex:1;font-size:12px;color:var(--ink-light);}
+.rcount{font-size:13px;font-weight:500;color:var(--ink-mid);min-width:20px;text-align:right;}
+
+footer{background:var(--ink);color:rgba(255,255,255,.3);text-align:center;padding:1.25rem;font-size:12px;letter-spacing:.06em;margin-top:2rem;}
+
+@media(max-width:640px){
+  .hero-t{font-size:36px;}
+  .venue-photos{grid-template-columns:1fr;height:auto;}
+  .venue-photos .photo-main{height:200px;}
+  .photo-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .photo-stack img{height:130px;}
+  .dates-grid{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="hdr">
+    <div class="logo">
+      <span class="logo-t">Deloitte S&amp;T</span>
+      <div class="logo-pipe"></div>
+      <span class="logo-s">M&amp;A Advisory</span>
+    </div>
+    <span class="hdr-badge">Internal Use Only</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="eyebrow">Stonepeak &nbsp;&middot;&nbsp; Hudson Yards &nbsp;&middot;&nbsp; New York</div>
+    <h1 class="hero-t">Closing <em>Celebrations</em></h1>
+    <div class="hero-projects">
+      <span class="proj-tag">Project Camaro</span>
+      <span class="proj-tag">Project Skysail</span>
+      <span class="proj-tag">Project Tampa</span>
+    </div>
+    <p class="hero-d">Select every date that works for you. Results update live so the team can find the best night to celebrate together.</p>
+  </div>
+</div>
+
+<div class="sync-bar">
+  <div class="sync-in">
+    <div class="sdot ok" id="sdot"></div>
+    <span class="slabel" id="slabel">Up to date</span>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- VENUE -->
+  <div class="venue-section">
+    <div class="section-label">The Venue</div>
+    <div class="venue-card">
+      <div class="venue-photos">
+        <img class="photo-main" src="bondst3.jpg" alt="BondST Hudson Yards">
+        <div class="photo-stack">
+          <img src="bondst1.png" alt="BondST dining room">
+          <img src="bondst2.jpg" alt="BondST interior">
+        </div>
+      </div>
+      <div class="venue-body">
+        <div class="venue-name">BondST Hudson Yards</div>
+        <div class="venue-sub">Private Dining Room &nbsp;&middot;&nbsp; 20 Hudson Yards, 5th Floor</div>
+        <div class="venue-meta">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path d="M13 8c0 4-5 7-5 7S3 12 3 8a5 5 0 0110 0z"/></svg>
+            20 Hudson Yards, 5th Floor
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 5v3.5l2 1.5"/></svg>
+            3 min walk from Stonepeak
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M5 3V2M11 3V2M2 7h12"/></svg>
+            Private dining · Seats up to 24
+          </span>
+        </div>
+        <p class="venue-desc">An expansion of the NoHo institution defining NYC's modern Japanese dining since 1998. BondST Hudson Yards brings inventive sashimi, Wagyu carpaccio, and an omakase bar to the fifth floor of Hudson Yards with spectacular views of the Vessel and the Hudson River. Two private dining rooms seat up to 24 — the perfect backdrop for a closing celebration.</p>
+        <a class="venue-link" href="https://bondstrestaurant.com/hudsonyards/" target="_blank" rel="noopener">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2H2a1 1 0 00-1 1v7a1 1 0 001 1h7a1 1 0 001-1V7"/><path d="M8 1h3v3M11 1L5.5 6.5"/></svg>
+          bondstrestaurant.com &mdash; Hudson Yards
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE VOTE -->
+  <div>
+    <div class="section-label">Date Availability</div>
+    <div class="vote-card">
+      <div class="vote-title">When are you free?</div>
+      <div class="vote-sub">Select all dates that work &mdash; click again to deselect. Your selections are saved and visible to the team.</div>
+      <div class="name-row">
+        <label>Your name</label>
+        <input type="text" id="voterName" placeholder="e.g. Chad Lackey">
+      </div>
+      <div class="dates-grid" id="datesGrid"></div>
+      <div class="submit-row">
+        <button class="submit-btn" onclick="submitVote()">Save my availability</button>
+        <span class="toast" id="toast">&#10003; Saved!</span>
+      </div>
+      <div id="results"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>Deloitte &amp; Touche LLP &nbsp;&middot;&nbsp; Strategy &amp; Transactions &nbsp;&middot;&nbsp; Internal Planning Tool &nbsp;&middot;&nbsp; 2026</footer>
+
+<script>
+const SHEETDB = 'https://sheetdb.io/api/v1/922jfy1ujblhd';
+const ROW_ID  = 'stonepeak-cel-v1';
+
+const DATES = [
+  {id:'d527', day:'Wed', num:'27', mo:'May', label:'May 27'},
+  {id:'d602', day:'Tue', num:'2',  mo:'Jun', label:'Jun 2'},
+  {id:'d603', day:'Wed', num:'3',  mo:'Jun', label:'Jun 3'},
+  {id:'d604', day:'Thu', num:'4',  mo:'Jun', label:'Jun 4'},
+  {id:'d609', day:'Tue', num:'9',  mo:'Jun', label:'Jun 9'},
+  {id:'d610', day:'Wed', num:'10', mo:'Jun', label:'Jun 10'},
+  {id:'d611', day:'Thu', num:'11', mo:'Jun', label:'Jun 11'},
+];
+
+// votes = { "Name": ["d527","d603",...], ... }
+let votes    = {};
+let selected = new Set();
+
+// Restore from localStorage
+(function(){
+  try {
+    const raw = localStorage.getItem('sp-cel-v1');
+    if (raw) {
+      const s = JSON.parse(raw);
+      if (s.name)     document.getElementById('voterName').value = s.name;
+      if (s.selected) selected = new Set(s.selected);
+    }
+  } catch(e) {}
+})();
+
+// ── Sync helpers ──────────────────────────────────────────────────────────────
+function setSync(state, msg) {
+  document.getElementById('sdot').className = 'sdot' + (state ? ' '+state : '');
+  document.getElementById('slabel').textContent = msg;
+}
+
+async function fetchVotes() {
+  setSync('spin','Syncing\u2026');
+  try {
+    const res  = await fetch(SHEETDB + '?sheet=Sheet1', {cache:'no-store'});
+    const rows = await res.json();
+    const row  = rows.find(r => r.id === ROW_ID);
+    if (row && row.payload) votes = JSON.parse(row.payload);
+    setSync('ok','Up to date \u00b7 ' + new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+    render();
+  } catch(e) {
+    setSync('err','Could not connect');
+  }
+}
+
+async function pushVotes() {
+  setSync('spin','Saving\u2026');
+  const payload = JSON.stringify(votes);
+  try {
+    const patch = await fetch(SHEETDB + '/id/' + ROW_ID + '?sheet=Sheet1', {
+      method:'PATCH',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({data:{id:ROW_ID, payload}})
+    });
+    const pr = await patch.json();
+    if (pr.updated === 0 || pr.error) {
+      await fetch(SHEETDB + '?sheet=Sheet1', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({data:{id:ROW_ID, payload}})
+      });
+    }
+    setSync('ok','Saved \u00b7 ' + new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}));
+  } catch(e) {
+    setSync('err','Save failed');
+  }
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function countFor(id) {
+  return Object.values(votes).filter(arr => arr.includes(id)).length;
+}
+
+function render() {
+  // Grid
+  document.getElementById('datesGrid').innerHTML = DATES.map(d => {
+    const cnt = countFor(d.id);
+    const sel = selected.has(d.id);
+    return `<button class="date-btn${sel?' sel':''}" onclick="toggle('${d.id}')">
+      <span class="dday">${d.day}</span>
+      <span class="dnum">${d.num}</span>
+      <span class="dmo">${d.mo}</span>
+      <span class="dtally">${cnt ? cnt+' available' : '\u2014'}</span>
+    </button>`;
+  }).join('');
+
+  // Results
+  const total = Object.keys(votes).length;
+  if (!total) { document.getElementById('results').innerHTML = ''; return; }
+  const maxC = Math.max(...DATES.map(d => countFor(d.id)), 1);
+  const rows = DATES.map(d => {
+    const cnt = countFor(d.id); if (!cnt) return '';
+    const pct = Math.round(cnt/maxC*100);
+    const names = Object.entries(votes).filter(([,arr])=>arr.includes(d.id)).map(([n])=>n).join(', ');
+    return `<div class="result-row">
+      <span class="rlabel">${d.label}</span>
+      <div class="rbar-wrap"><div class="rbar" style="width:${pct}%"></div></div>
+      <span class="rnames">${names}</span>
+      <span class="rcount">${cnt}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('results').innerHTML = `
+    <div class="results">
+      <div class="results-hdr">Availability &mdash; ${total} response${total!==1?'s':''}</div>
+      ${rows}
+    </div>`;
+}
+
+function toggle(id) {
+  if (selected.has(id)) selected.delete(id); else selected.add(id);
+  render();
+}
+
+function submitVote() {
+  const name = document.getElementById('voterName').value.trim();
+  if (!name)           { alert('Please enter your name.');            return; }
+  if (!selected.size)  { alert('Please select at least one date.');   return; }
+  votes[name] = [...selected];
+  localStorage.setItem('sp-cel-v1', JSON.stringify({name, selected:[...selected]}));
+  pushVotes().then(render);
+  const t = document.getElementById('toast');
+  t.classList.add('on'); setTimeout(()=>t.classList.remove('on'), 2500);
+}
+
+render();
+fetchVotes();
+setInterval(fetchVotes, 60000);
+</script>
+</body>
+</html>
