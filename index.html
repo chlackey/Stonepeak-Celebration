@@ -53,10 +53,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);m
 /* VENUE */
 .venue-section{margin-bottom:3rem;}
 .venue-card{background:#fff;border:1px solid var(--cream-mid);border-radius:14px;overflow:hidden;}
-.venue-photos{display:grid;grid-template-columns:1.6fr 1fr;gap:3px;height:240px;}
-.venue-photos .photo-main{width:100%;height:100%;object-fit:cover;display:block;}
-.photo-stack{display:grid;grid-template-rows:1fr 1fr;gap:3px;}
-.photo-stack img{width:100%;height:100%;object-fit:cover;display:block;}
+.venue-photos{display:grid;grid-template-columns:1.6fr 1fr;gap:3px;height:240px;overflow:hidden;}
+.venue-photos .photo-main{width:100%;height:240px;object-fit:cover;display:block;}
+.photo-stack{display:grid;grid-template-rows:1fr 1fr;gap:3px;height:240px;overflow:hidden;}
+.photo-stack img{width:100%;height:118px;object-fit:cover;display:block;}
 .venue-body{padding:1.75rem 2rem;}
 .venue-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--ink);margin-bottom:4px;}
 .venue-sub{font-size:13px;color:var(--ink-light);margin-bottom:1rem;}
@@ -100,6 +100,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);m
 .rcount{font-size:13px;font-weight:500;color:var(--ink-mid);min-width:20px;text-align:right;}
 
 footer{background:var(--ink);color:rgba(255,255,255,.3);text-align:center;padding:1.25rem;font-size:12px;letter-spacing:.06em;margin-top:2rem;}
+.reset-zone{max-width:980px;margin:3rem auto 0;padding:0 2rem 2rem;display:flex;align-items:center;gap:12px;}
+.reset-lbl{font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;}
+.reset-btn{font-size:12px;color:#7A2828;background:none;border:1px solid rgba(122,40,40,.2);padding:5px 14px;border-radius:5px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.reset-btn:hover{background:#F5EAEA;}
 
 @media(max-width:640px){
   .hero-t{font-size:36px;}
@@ -151,10 +155,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.3);text-align:center;paddin
     <div class="section-label">The Venue</div>
     <div class="venue-card">
       <div class="venue-photos">
-        <img class="photo-main" src="bondst3.jpg" alt="BondST Hudson Yards">
+        <img class="photo-main" src="bondst3.jpg" alt="">
         <div class="photo-stack">
-          <img src="bondst1.png" alt="BondST dining room">
-          <img src="bondst2.jpg" alt="BondST interior">
+          <img src="bondst1.png" alt="">
+          <img src="bondst2.jpg" alt="">
         </div>
       </div>
       <div class="venue-body">
@@ -203,6 +207,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.3);text-align:center;paddin
   </div>
 
 </main>
+
+<div class="reset-zone">
+  <span class="reset-lbl">Admin</span>
+  <button class="reset-btn" onclick="resetAll()">Reset all submissions</button>
+</div>
 
 <footer>Deloitte &amp; Touche LLP &nbsp;&middot;&nbsp; Strategy &amp; Transactions &nbsp;&middot;&nbsp; Internal Planning Tool &nbsp;&middot;&nbsp; 2026</footer>
 
@@ -334,6 +343,14 @@ function submitVote() {
   pushVotes().then(render);
   const t = document.getElementById('toast');
   t.classList.add('on'); setTimeout(()=>t.classList.remove('on'), 2500);
+}
+
+function resetAll() {
+  const pw = prompt('Enter admin password:');
+  if (pw !== 'Kram3r12!') { if (pw !== null) alert('Incorrect password.'); return; }
+  if (!confirm('Reset ALL submissions? This cannot be undone.')) return;
+  votes = {};
+  pushVotes().then(render);
 }
 
 render();
