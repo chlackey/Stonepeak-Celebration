@@ -221,12 +221,9 @@ const ROW_ID  = 'stonepeak-cel-v1';
 
 const DATES = [
   {id:'d527', day:'Wed', num:'27', mo:'May', label:'May 27'},
-  {id:'d602', day:'Tue', num:'2',  mo:'Jun', label:'Jun 2'},
-  {id:'d603', day:'Wed', num:'3',  mo:'Jun', label:'Jun 3'},
-  {id:'d604', day:'Thu', num:'4',  mo:'Jun', label:'Jun 4'},
   {id:'d609', day:'Tue', num:'9',  mo:'Jun', label:'Jun 9'},
   {id:'d610', day:'Wed', num:'10', mo:'Jun', label:'Jun 10'},
-  {id:'d611', day:'Thu', num:'11', mo:'Jun', label:'Jun 11'},
+  {id:'dnone', day:'', num:'', mo:'', label:'None of these dates work for me'},
 ];
 
 // votes = { "Name": ["d527","d603",...], ... }
@@ -298,6 +295,12 @@ function render() {
   document.getElementById('datesGrid').innerHTML = DATES.map(d => {
     const cnt = countFor(d.id);
     const sel = selected.has(d.id);
+    if (d.id === 'dnone') {
+      return `<button class="date-btn none-btn${sel?' sel':''}" onclick="toggle('${d.id}')" style="grid-column:1/-1;padding:12px 16px;text-align:left;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:13px;color:${sel?'var(--green)':'var(--ink-mid)'}">None of these dates work for me</span>
+        <span class="dtally" style="margin-top:0">${cnt ? cnt+' selected' : '\u2014'}</span>
+      </button>`;
+    }
     return `<button class="date-btn${sel?' sel':''}" onclick="toggle('${d.id}')">
       <span class="dday">${d.day}</span>
       <span class="dnum">${d.num}</span>
